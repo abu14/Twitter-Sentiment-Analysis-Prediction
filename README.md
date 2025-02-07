@@ -9,7 +9,7 @@
 
 
 <!-- Table of Contents -->
-## Table of Contents
+## **Table of Contents**
 - [Project Overview](#project-overview)
 - [Architecture](#architecture)
 - [Tools Used](#tools-used)
@@ -19,11 +19,11 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## Project Overview
+## **Project Overview**
 This project aims to analyze the sentiment of tweets using machine learning techniques. The primary goal is to classify tweets as positive, negative, neutral, or irrelevant based on their content. The process involves several key steps: data ingestion, preprocessing, model training, and evaluation. Tweets are collected using the provided Kaggle dataset with a training and validation dataframe. Preprocessing includes text normalization, tokenization, removal of stopwords, and vectorization using TF-IDF. A machine learning algorithms, such as a support vector machines, a random forest classifier, and others wass trained on the preprocessed data. The model's performance is evaluated using metrics like accuracy, precision, recall, and F1-score. The final and best performing model is then used to predict the sentiment of new tweets, providing valuable insights into public opinion on various topics.
 
 <!-- Architecture -->
-## Architecture
+## **Architecture**
 The project consists of two main architectures, each containing specific pipelines for different purposes:
 
 - #### Training Pipeline Architecture
@@ -40,7 +40,7 @@ For training the model and consists of these components:
 
 <!-- Tools Uses -->
 
-## Tools Used
+## **Tools Used**
 <p>
 <img src="https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white">
 <img src="https://img.shields.io/badge/-FastAPI-009688?style=flat&logo=fastapi&logoColor=white">
