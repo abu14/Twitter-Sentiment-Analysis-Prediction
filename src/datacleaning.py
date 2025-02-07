@@ -15,7 +15,6 @@ class DataCleaner:
         
         Parameters:
             an input pandas Dataframe
-        
         Returns:
             pd.DataFrame: the dataframe with specified column removed
         """
@@ -44,6 +43,8 @@ class DataCleaner:
         """
         Purpose:
             Drops duplicate rows
+        Parameters:
+            pd.DataFrame
         Returns:
             Cleaned dataframe
         """
@@ -55,6 +56,8 @@ class DataCleaner:
         """
         Purpose:
             Drops null values in the dataframe
+        Parameters:
+            pd.Dataframe
         Retruns:
             Cleaned dataframe
         """
