@@ -79,7 +79,7 @@ The data preprocessing pipeline consists of several steps designed to clean and 
 
 These steps ensure that the input data is clean and ready for model training.
 
-#### **Code Snippet**
+#### Code Snippet
 ```python
 class DataPreprocessor:
     def __init__(self, df):
@@ -104,7 +104,7 @@ class DataPreprocessor:
         return self.df      
 ```
 
-#### **Model Training**
+#### Model Training
 
 The `Model Training` is designed to handle the full training process for a text classification model. It includes steps for data preparation, model training, and evaluation. This provides a streamlined way to train a Random Forest Classifier using TF-IDF vectorization and ensures reproducibility through configurable parameters.
 
@@ -117,7 +117,7 @@ Key features:
 - **Evaluation:** Generate a classification report to assess the model's performance.
 
 
-#### **Code Snippet**
+#### Code Snippet
 ```python
     def train(self):
         # label Encoding the variables
@@ -140,7 +140,7 @@ Key features:
             ('clf', RandomForestClassifier(random_state=self.random_state))])
 ```
 
-#### **Deployment**
+#### Deployment
 
 This Flask application provides a web interface for performing sentiment analysis on text data. It allows users to upload a CSV file containing text data, preprocesses the data, makes predictions using a trained machine learning model, and displays the results in a user-friendly format.
 
@@ -153,7 +153,7 @@ Key features:
 
 
 
-#### **Code Snippet**
+#### Code Snippet
 ```python
 @app.route('/')
 def home():
@@ -179,16 +179,16 @@ def predict():
 ```
 
 <!-- LICENSE -->
-## License
+## **License**
 This project is licensed under the MIT License. See [LICENSE](./LICENCE) file for more details.
 
 
 
 <!-- CONTACT -->
-## Contact
+## **Contact**
 
-##### ⭐️Abenezer Tesfaye
+##### Abenezer Tesfaye
 
-Email - tesfayeabenezer64@gmail.com
+⭐️ Email - tesfayeabenezer64@gmail.com
  
 Project Link: [Github Repo](https://github.com/abu14/Twitter-Sentiment-Analysis-Prediction)
