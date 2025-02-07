@@ -35,5 +35,5 @@ For training the model and consists of four components. The components are orche
 5. Model Evaluation: Evaluates the performance of the trained model.
 6. Model Deployment: Using a simple app built on Flask to showcase the model in action. 
 <p align="center">
-  <img src="./Twitter-Sentiment-Analysis-Prediction/project_workflow.JPG" alt="Project Workflow">
+  <img src="./Twitter-Sentiment-Analysis-Prediction/project_workflow.png" alt="Project Workflow">
 </p>
