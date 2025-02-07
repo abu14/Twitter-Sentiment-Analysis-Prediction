@@ -27,7 +27,7 @@ This project aims to analyze the sentiment of tweets using machine learning tech
 The project consists of two main architectures, each containing specific pipelines for different purposes:
 
 - #### Training Pipeline Architecture
-For training the model and consists of four components. The components are orchestrated using Airflow:
+For training the model and consists of these components:
 1. Data Ingestion: Download the datasets from kaggle.
 2. Preprocessing: Apply preprocessing techiniques to the datasets.
 3. Data Exploration: Analyzing the various characterstics of the dataset.
