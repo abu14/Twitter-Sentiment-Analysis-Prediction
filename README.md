@@ -180,7 +180,7 @@ def predict():
 
 <!-- LICENSE -->
 ## **License**
-This project is licensed under the MIT License. See [LICENSE](./LICENCE) file for more details.
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) file for more details.
 
 
 
