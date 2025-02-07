@@ -20,7 +20,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## Project Overview
-This project aims to analyze the sentiment of tweets using machine learning techniques. The primary goal is to classify tweets as positive, negative, or neutral based on their content. The process involves several key steps: data collection, preprocessing, feature extraction, model training, and evaluation. Tweets are collected using the Twitter API and stored in a DataFrame. Preprocessing includes text normalization, tokenization, removal of stopwords, and vectorization using TF-IDF. A machine learning model, such as a logistic regression or a random forest classifier, is trained on the preprocessed data. The model's performance is evaluated using metrics like accuracy, precision, recall, and F1-score. The final model is then used to predict the sentiment of new tweets, providing valuable insights into public opinion on various topics.
+This project aims to analyze the sentiment of tweets using machine learning techniques. The primary goal is to classify tweets as positive, negative, neutral, or irrelevant based on their content. The process involves several key steps: data ingestion, preprocessing, model training, and evaluation. Tweets are collected using the provided Kaggle dataset with a training and validation dataframe. Preprocessing includes text normalization, tokenization, removal of stopwords, and vectorization using TF-IDF. A machine learning algorithms, such as a support vector machines, a random forest classifier, and others wass trained on the preprocessed data. The model's performance is evaluated using metrics like accuracy, precision, recall, and F1-score. The final and best performing model is then used to predict the sentiment of new tweets, providing valuable insights into public opinion on various topics.
 
 <!-- Architecture -->
 ## Architecture
@@ -58,10 +58,125 @@ For training the model and consists of these components:
 
 <!-- Tools Uses -->
 
-## Development Workflow
+## **Development Workflow**
+
+In this section we'll cover the most critical elements of the development process. We'll cover the four most imiportant sections in this project. But be sure to check out the source codes and notebook to get a more closer look.
+
+### Data Preprocessing
+
+The data preprocessing pipeline consists of several steps designed to clean and transform raw text data into a format suitable for machine learning models. These steps include:
+
+- **Normalization:** Convert all text to lowercase.
+- **Filtering:** Remove null values and convert the column to string type.
+- **HTML Removal:** Eliminate any HTML tags from the text.
+- **URL Removal:** Strip out URLs to focus on the main content.
+- **Number Removal:** Remove numerical values that may not be relevant for sentiment analysis.
+- **Punctuation Removal:** Eliminate punctuation marks to simplify the text.
+- **Tokenization:** Break down the text into individual words (tokens).
+- **Stopword Removal:** Filter out common words that don't carry much meaning.
+- **Emoji Removal:** Remove emojis to focus on textual content.
+- **Vectorization:** Convert the preprocessed text into numerical features using TF-IDF vectorization.
+
+These steps ensure that the input data is clean and ready for model training.
+
+#### **Code Snippet**
+```python
+class DataPreprocessor:
+    def __init__(self, df):
+        self.df = df
+
+    def normalize_text(self, column):
+        self.df[column] = self.df[column].apply(lambda text: text.lower())
+        return self.df
+# -------------------------
+
+    def preprocesser(self, column):
+        """Applies preprocessing steps to the DataFrame."""
+        self.normalize_text(column)
+        self.filter_strings(column)
+        self.remove_html(column)
+        self.remove_urls(column)
+        self.remove_num_values(column)
+        self.remove_stopwords(column)
+        self.remove_punct(column)
+        self.tokenizer_text(column)
+        self.join_tweets(column)
+        return self.df      
+```
+
+#### **Model Training**
+
+The `Model Training` is designed to handle the full training process for a text classification model. It includes steps for data preparation, model training, and evaluation. This provides a streamlined way to train a Random Forest Classifier using TF-IDF vectorization and ensures reproducibility through configurable parameters.
+
+Key features:
+
+- **Label Encoding:** Convert target variables into numerical labels.
+- **Data Splitting:** Divide the dataset into training and testing sets.
+- **Pipeline Construction:** Build a machine learning pipeline that combines TF-IDF vectorization and a Random Forest Classifier.
+- **Model Training:** Train the model on the training data.
+- **Evaluation:** Generate a classification report to assess the model's performance.
+
+
+#### **Code Snippet**
+```python
+    def train(self):
+        # label Encoding the variables
+        label_encoder = LabelEncoder()
+        self.df[self.target_col] = label_encoder.fit_transform(self.df[self.target_col])
+        
+        #Feature and Target variables
+        X = self.df[self.feature_col]
+        y = self.df[self.target_col]
+
+        #Split the data
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, 
+            test_size=self.test_size,
+            random_state=self.random_state
+                )     
+        # Build pipeline
+        self.pipeline = Pipeline([
+            ('tfidf', TfidfVectorizer()),
+            ('clf', RandomForestClassifier(random_state=self.random_state))])
+```
+
+#### **Deployment**
+
+This Flask application provides a web interface for performing sentiment analysis on text data. It allows users to upload a CSV file containing text data, preprocesses the data, makes predictions using a trained machine learning model, and displays the results in a user-friendly format.
+
+Key features:
+
+- **File Upload:** Users can upload a CSV file containing text data.
+- **Data Preprocessing:** The uploaded data is preprocessed using the same steps as during training.
+- **Prediction:** Predictions are made using a pre-trained Random Forest Classifier.
+- **Result Display:** The prediction results are displayed in an HTML table for easy viewing.
 
 
 
+#### **Code Snippet**
+```python
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    if 'file' not in request.files:
+        return "No file part", 400
+    file = request.files['file']
+    if file.filename == '':
+        return "No selected file", 400
+    if file:
+        # Read the uploaded CSV file into a DataFrame
+        df = pd.read_csv(file)
+        # Predict sentiments
+        result_df = predictor.predict_df(df, text_column='text')
+        # Convert to HTML
+        result_html = result_df.to_html(index=False)
+        
+        return render_template('result.html', result=result_html)
+
+```
 
 <!-- LICENSE -->
 ## License
