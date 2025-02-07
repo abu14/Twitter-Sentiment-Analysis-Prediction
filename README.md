@@ -28,12 +28,12 @@ The project consists of two main architectures, each containing specific pipelin
 
 - #### Training Pipeline Architecture
 For training the model and consists of these components:
-1. Data Ingestion: Download the datasets from kaggle.
-2. Preprocessing: Apply preprocessing techiniques to the datasets.
-3. Data Exploration: Analyzing the various characterstics of the dataset.
-4. Model Training: Builds and trains the ship detection model.
-5. Model Evaluation: Evaluates the performance of the trained model.
-6. Model Deployment: Using a simple app built on Flask to showcase the model in action. 
+1. **Data Ingestion**: Download the datasets from kaggle.
+2. **Preprocessing**: Apply preprocessing techiniques to the datasets.
+3. **Data Exploration**: Analyzing the various characterstics of the dataset.
+4. **Model Training**: Builds and trains the ship detection model.
+5. **Model Evaluation**: Evaluates the performance of the trained model.
+6. **Model Deployment**: Using a simple app built on Flask to showcase the model in action. 
 <p align="center">
   <img src="project_workflow.PNG" alt="Project Workflow">
 </p>
@@ -50,6 +50,9 @@ For training the model and consists of these components:
 <img src="https://img.shields.io/badge/-Pandas-150458?style=flat&logo=pandas&logoColor=white">
 <img src="https://img.shields.io/badge/-Matplotlib-11557C?style=flat&logo=matplotlib&logoColor=white">
 <img src="https://img.shields.io/badge/-Seaborn-3888E3?style=flat&logo=seaborn&logoColor=white">
+<img src="https://img.shields.io/badge/-joblib-000000?style=flat&logo=joblib&logoColor=white">
+<img src="https://img.shields.io/badge/-HTML-E34F26?style=flat&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/-NLTK-000000?style=flat&logo=nltk&logoColor=white">
 </p>
 
 
