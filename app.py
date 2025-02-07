@@ -24,11 +24,9 @@ def predict():
     if file:
         # Read the uploaded CSV file into a DataFrame
         df = pd.read_csv(file)
-        
         # Predict sentiments
         result_df = predictor.predict_df(df, text_column='text')
-        
-        # Convert the result DataFrame to HTML table
+        # Convert to HTML
         result_html = result_df.to_html(index=False)
         
         return render_template('result.html', result=result_html)
